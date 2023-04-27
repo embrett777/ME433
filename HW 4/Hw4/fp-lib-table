@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "pic32 board")(type "KiCad")(uri "${KIPRJMOD}/pic32 board.pretty")(options "")(descr ""))
+)
