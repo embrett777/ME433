@@ -7,12 +7,12 @@ void initSPI() {
     // Turn of analog pins
     ANSELB = 0;
     // Make an output pin for CS
-    TRISAbits.TRISA0 = 0;
-    LATAbits.LATA0 = 1;
+    TRISBbits.TRISB7 = 0;
+    LATBbits.LATB7 = 1;
     // Set SDO1 to B8
-    RPB8bits.RPB8R = 0b0011;
+    RPB8Rbits.RPB8R = 0b0011;
     // Set SDI1 to B5
-    SDI1bits.SDI1R = 0b0001;
+    SDI1Rbits.SDI1R = 0b0001;
 
     // setup SPI1
     SPI1CON = 0; // turn off the spi module and reset it
