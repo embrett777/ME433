@@ -1,15 +1,17 @@
+#include "spi.h"
+
 // initialize SPI1
 void initSPI() {
     // Pin B14 has to be SCK1
     // Turn of analog pins
-    //...
+    ANSELB = 0;
     // Make an output pin for CS
-    //...
-    //...
-    // Set SDO1
-    //...
-    // Set SDI1
-    //...
+    TRISBbits.TRISB8 = 0;
+    TRISBbits.TRISB5 = 0;
+    // Set SDO1 to B8
+    RPB8bits.RPB8R = 0b0011;
+    // Set SDI1 to B5
+    SDI1bits.SDI1R = 0b0001;
 
     // setup SPI1
     SPI1CON = 0; // turn off the spi module and reset it
