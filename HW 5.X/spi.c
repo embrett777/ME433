@@ -1,4 +1,5 @@
 #include "spi.h"
+#include "nu32dip.h"
 
 // initialize SPI1
 void initSPI() {
@@ -6,8 +7,8 @@ void initSPI() {
     // Turn of analog pins
     ANSELB = 0;
     // Make an output pin for CS
-    TRISBbits.TRISB8 = 0;
-    TRISBbits.TRISB5 = 0;
+    TRISAbits.TRISA0 = 0;
+    LATAbits.LATA0 = 1;
     // Set SDO1 to B8
     RPB8bits.RPB8R = 0b0011;
     // Set SDI1 to B5
