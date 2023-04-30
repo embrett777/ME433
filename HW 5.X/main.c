@@ -35,12 +35,12 @@ void main(){
             //create message to send
             p = (c<<15);
             p = p|(0b111<<12);
-            p = p|v;
+            p = p|(v<<2);
             
             //set CS low
             LATBbits.LATB7 = 0;
             //send first 8 bits
-            spi_io((p>>8));
+            spi_io(p>>8);
             //send second 8 bits
             spi_io(p);
             LATBbits.LATB7 = 1;
@@ -54,12 +54,12 @@ void main(){
             //create message to send
             p = (c<<15);
             p = p|(0b111<<12);
-            p = p|v;
+            p = p|(v<<2);
             
             //set CS low
             LATBbits.LATB7 = 0;
             //send first 8 bits
-            spi_io((p>>8));
+            spi_io(p>>8);
             //send second 8 bits
             spi_io(p);
             LATBbits.LATB7 = 1;
@@ -67,5 +67,6 @@ void main(){
             _CP0_SET_COUNT(0);
             while(_CP0_GET_COUNT() < 12000*10){}
         }
+        i = 0;
     }
 }
