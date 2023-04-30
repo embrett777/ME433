@@ -26,7 +26,8 @@ void main(){
     
     while(1){
         //cycle through voltages to sent to MPC4912
-        for(int i=0; i<100; i++){
+        int i;
+        for(i=0; i<100; i++){
             //choose first channel
             c = 0;
             //set desired voltage
@@ -37,12 +38,12 @@ void main(){
             p = p|v;
             
             //set CS low
-            LATAbits.LATA0 = 0;
+            LATBbits.LATB7 = 0;
             //send first 8 bits
             spi_io((p>>8));
             //send second 8 bits
             spi_io(p);
-            LATAbits.LATA0 = 1;
+            LATBbits.LATB7 = 1;
            
             
             
@@ -56,12 +57,12 @@ void main(){
             p = p|v;
             
             //set CS low
-            LATAbits.LATA0 = 0;
+            LATBbits.LATB7 = 0;
             //send first 8 bits
             spi_io((p>>8));
             //send second 8 bits
             spi_io(p);
-            LATAbits.LATA0 = 1;
+            LATBbits.LATB7 = 1;
             
             _CP0_SET_COUNT(0);
             while(_CP0_GET_COUNT() < 12000*10){}
