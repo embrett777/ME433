@@ -30,10 +30,10 @@ int main(void) {
       while(_CP0_GET_COUNT() < 12000*2000){
                     int r = readGP0();
           if (r){
-              turnOnGP7();
+              turnOffGP7();
           }
           else{
-              turnOffGP7();
+              turnOnGP7();
           }
       }
 
