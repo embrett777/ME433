@@ -24,14 +24,29 @@ int main(void) {
   i2c_master_stop();
   
   while(1){
-      NU32DIP_YELLOW = 0;
-      turnOnGP7();
-      unsigned int t = _CP0_GET_COUNT();
-      while(_CP0_GET_COUNT() < t + 12000*2000){}
-      NU32DIP_YELLOW = 1;
-      turnOffGP7();
-      t = _CP0_GET_COUNT();
-      while(_CP0_GET_COUNT() < t + 12000*2000){}
+      NU32DIP_GREEN = 0;
+      _CP0_SET_COUNT();
+      while(_CP0_GET_COUNT() < 12000*2000){
+                    int r = readGP0();
+          if (r){
+              turnOnGP7();
+          }
+          else{
+              turnOffGP7();
+          }
+      }
+
+      NU32DIP_GREEN = 1;
+      _CP0_SET_COUNT();
+      while(_CP0_GET_COUNT() < 12000*2000){
+          int r = readGP0();
+          if (r){
+              turnOnGP7();
+          }
+          else{
+              turnOffGP7();
+          }
+      }
   }
 }
 
@@ -59,4 +74,25 @@ void turnOffGP7(){
     i2c_master_send(0b00000000);
     //send stop bit
     i2c_master_stop();
+}
+
+int readGP0(void){
+    //send start bit
+    i2c_master_start();
+    //send address of chip to write
+    i2c_master_send(write_address);
+    //send register to read from: GPIO
+    i2c_master_send(0x09);
+    //send restart bit
+    i2c_master_restart();
+    //send address of chip to read
+    i2c_master_send(read_address);
+    //receive
+    unsigned char r = i2c_master_recv();
+    //acknowledge (1=done)
+    i2c_master_ack(1);
+    //send stop bit
+    i2c_master_stop();
+    //return the value of GP0
+    return (r&0b00000001);
 }
