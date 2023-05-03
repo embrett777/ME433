@@ -3,6 +3,7 @@
 
 void turnOnGP7(void);
 void turnOffGP7(void);
+int readGP0(void);
 unsigned char write_address = 0b01000000;
 unsigned char read_address = 0b01000001;
 
@@ -25,7 +26,7 @@ int main(void) {
   
   while(1){
       NU32DIP_GREEN = 0;
-      _CP0_SET_COUNT();
+      _CP0_SET_COUNT(0);
       while(_CP0_GET_COUNT() < 12000*2000){
                     int r = readGP0();
           if (r){
@@ -37,14 +38,14 @@ int main(void) {
       }
 
       NU32DIP_GREEN = 1;
-      _CP0_SET_COUNT();
+      _CP0_SET_COUNT(0);
       while(_CP0_GET_COUNT() < 12000*2000){
           int r = readGP0();
           if (r){
-              turnOnGP7();
+              turnOffGP7();
           }
           else{
-              turnOffGP7();
+              turnOnGP7();
           }
       }
   }
