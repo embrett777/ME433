@@ -10,6 +10,19 @@ int main(void) {
   NU32DIP_Startup(); // cache on, interrupts on, LED/button init, UART init
   i2c_master_setup();
   
+  //setting output and input pins
+  //send start bit
+  i2c_master_start();
+  //send address of chip
+  i2c_master_send(write_address);
+  //send register name: IODIR
+  i2c_master_send(0x00);
+  //send the value to clear bit 7 and set bit 0
+  //this makes GP7 an output and GP0 an input
+  i2c_master_send(0b00000001);
+  //send stop bit
+  i2c_master_stop();
+  
   while(1){
       NU32DIP_YELLOW = 0;
       turnOnGP7();
