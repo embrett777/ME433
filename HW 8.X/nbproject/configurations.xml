@@ -19,6 +19,7 @@
       <itemPath>i2c_master_noint.c</itemPath>
       <itemPath>nu32dip.c</itemPath>
       <itemPath>ssd1306.c</itemPath>
+      <itemPath>template.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
