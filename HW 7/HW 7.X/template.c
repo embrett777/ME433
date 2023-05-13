@@ -10,13 +10,27 @@ int main(void) {
     init_mpu6050();
 	
 	// char array for the raw data
+    unsigned char data[14];
 	// floats to store the data
-	
+	float xXL, yXL, zXL, xG, yG, zG, temp;
+    
 	// read whoami
+    unsigned char who;
+    who = whoami();
 	// print whoami
+    char m[100];
+    sprintf(m,"0x%X\r\n",who);
+    NU32DIP_WriteUART1(m);
 	// if whoami is not 0x68, stuck in loop with LEDs on
+    if(who != 0x68){
+        while(1){
+            NU32DIP_YELLOW = 0;
+            NU32DIP_GREEN = 1;
+        }
+    }
     
 	// wait to print until you get a newline
+    char m_in[100];
     NU32DIP_ReadUART1(m_in,100);
 
     while (1) {
@@ -25,10 +39,15 @@ int main(void) {
         blink(1, 5);
 
         // read IMU
+        burst_read_mpu6050(data);
+        
 		// convert data
+        xXL = conv_xXL(data);
 
         // print out the data
-
+        sprintf(m,"%f\r\n",xXL);
+        NU32DIP_WriteUART1(m);
+        
         while (_CP0_GET_COUNT() < 48000000 / 2 / 100) {
         }
     }
