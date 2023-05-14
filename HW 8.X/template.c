@@ -10,7 +10,19 @@ int main(void) {
   NU32DIP_Startup(); // cache on, interrupts on, LED/button init, UART init
   i2c_master_setup();
   ssd1306_setup();
-  
+  while(1){
+      NU32DIP_YELLOW = 1;
+      ssd1306_drawPixel(5,5,1);
+      unsigned int t = _CP0_GET_COUNT();
+      while (_CP0_GET_COUNT() < t + 12000 * 1000) {
+      }
+      NU32DIP_YELLOW = 0;
+      ssd1306_drawPixel(5,5,0);
+      t = _CP0_GET_COUNT();
+      while (_CP0_GET_COUNT() < t + 12000 * 1000) {
+      }
+      
+  }
 }
 
 void drawChar(char letter, char x, char y){
