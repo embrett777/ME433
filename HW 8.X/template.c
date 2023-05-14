@@ -13,11 +13,13 @@ int main(void) {
   while(1){
       NU32DIP_YELLOW = 1;
       ssd1306_drawPixel(5,5,1);
+      ssd1306_update();
       unsigned int t = _CP0_GET_COUNT();
       while (_CP0_GET_COUNT() < t + 12000 * 1000) {
       }
       NU32DIP_YELLOW = 0;
       ssd1306_drawPixel(5,5,0);
+      ssd1306_update();
       t = _CP0_GET_COUNT();
       while (_CP0_GET_COUNT() < t + 12000 * 1000) {
       }
