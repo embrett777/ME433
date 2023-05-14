@@ -10,15 +10,21 @@ int main(void) {
   NU32DIP_Startup(); // cache on, interrupts on, LED/button init, UART init
   i2c_master_setup();
   ssd1306_setup();
+  int i=0;
   while(1){
       NU32DIP_YELLOW = 1;
-      ssd1306_drawPixel(10,10,1);
+      char message[50];
+      i++;
+      sprintf(message, "my var = %d", i);
+      drawString(message,10,10);
       ssd1306_update();
       unsigned int t = _CP0_GET_COUNT();
       while (_CP0_GET_COUNT() < t + 12000 * 1000) {
       }
       NU32DIP_YELLOW = 0;
-      ssd1306_drawPixel(10,10,0);
+      i++;
+      sprintf(message, "my var = %d", i);
+      drawString(message,10,10);
       ssd1306_update();
       t = _CP0_GET_COUNT();
       while (_CP0_GET_COUNT() < t + 12000 * 1000) {
