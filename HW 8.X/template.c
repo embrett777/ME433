@@ -29,13 +29,13 @@ int main(void) {
         zXL = conv_zXL(data);
 
         // print out the data
-        sprintf(m, "Z acceleration = %f", zXL);
+        sprintf(m, "Z accel = %f", zXL);
         drawString(m,10,10);
         ssd1306_update();
         unsigned int t = _CP0_GET_COUNT();
         float t2 = t/24000000.0;
         sprintf(m, "Fps: %f", t2);
-        drawString(m,30,10);
+        drawString(m,10,20);
         ssd1306_update();
         blink(1,5);
     }
