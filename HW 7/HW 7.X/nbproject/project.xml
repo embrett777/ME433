@@ -11,6 +11,7 @@
             <sourceRootList>
                 <sourceRootElem>../HW 6.X</sourceRootElem>
                 <sourceRootElem>.</sourceRootElem>
+                <sourceRootElem>../../HW 8.X</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

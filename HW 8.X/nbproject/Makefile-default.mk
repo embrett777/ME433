@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=i2c_master_noint.c nu32dip.c ssd1306.c template.c
+SOURCEFILES_QUOTED_IF_SPACED=i2c_master_noint.c nu32dip.c ssd1306.c template.c mpu6050.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o ${OBJECTDIR}/template.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/i2c_master_noint.o.d ${OBJECTDIR}/nu32dip.o.d ${OBJECTDIR}/ssd1306.o.d ${OBJECTDIR}/template.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o ${OBJECTDIR}/template.o ${OBJECTDIR}/mpu6050.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/i2c_master_noint.o.d ${OBJECTDIR}/nu32dip.o.d ${OBJECTDIR}/ssd1306.o.d ${OBJECTDIR}/template.o.d ${OBJECTDIR}/mpu6050.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o ${OBJECTDIR}/template.o
+OBJECTFILES=${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o ${OBJECTDIR}/template.o ${OBJECTDIR}/mpu6050.o
 
 # Source Files
-SOURCEFILES=i2c_master_noint.c nu32dip.c ssd1306.c template.c
+SOURCEFILES=i2c_master_noint.c nu32dip.c ssd1306.c template.c mpu6050.c
 
 
 
@@ -145,6 +145,12 @@ ${OBJECTDIR}/template.o: template.c  .generated_files/flags/default/dc45855222ec
 	@${RM} ${OBJECTDIR}/template.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/template.o.d" -o ${OBJECTDIR}/template.o template.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/mpu6050.o: mpu6050.c  .generated_files/flags/default/b97d40bc27398219a41f85ec8a9d28e584784cd5 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mpu6050.o.d 
+	@${RM} ${OBJECTDIR}/mpu6050.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/mpu6050.o.d" -o ${OBJECTDIR}/mpu6050.o mpu6050.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
 ${OBJECTDIR}/i2c_master_noint.o: i2c_master_noint.c  .generated_files/flags/default/b90eee1407bbbb0f8055bbef48ae10bae2b9f9cc .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
@@ -169,6 +175,12 @@ ${OBJECTDIR}/template.o: template.c  .generated_files/flags/default/e802767b4b26
 	@${RM} ${OBJECTDIR}/template.o.d 
 	@${RM} ${OBJECTDIR}/template.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/template.o.d" -o ${OBJECTDIR}/template.o template.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/mpu6050.o: mpu6050.c  .generated_files/flags/default/f10bd9a883aa63775adb30be13d5d4fbb61c687c .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mpu6050.o.d 
+	@${RM} ${OBJECTDIR}/mpu6050.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/mpu6050.o.d" -o ${OBJECTDIR}/mpu6050.o mpu6050.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 

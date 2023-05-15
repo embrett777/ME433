@@ -7,6 +7,7 @@
       <itemPath>nu32dip.h</itemPath>
       <itemPath>mpu6050.h</itemPath>
       <itemPath>i2c_master_noint.h</itemPath>
+      <itemPath>../../HW 8.X/mpu6050.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,6 +21,7 @@
       <itemPath>nu32dip.c</itemPath>
       <itemPath>mpu6050.c</itemPath>
       <itemPath>i2c_master_noint.c</itemPath>
+      <itemPath>../../HW 8.X/mpu6050.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -30,6 +32,7 @@
   <sourceRootList>
     <Elem>../HW 6.X</Elem>
     <Elem>.</Elem>
+    <Elem>../../HW 8.X</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

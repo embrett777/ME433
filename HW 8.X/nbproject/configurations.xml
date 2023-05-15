@@ -8,6 +8,7 @@
       <itemPath>ssd1306.h</itemPath>
       <itemPath>i2c_master_noint.h</itemPath>
       <itemPath>font.h</itemPath>
+      <itemPath>mpu6050.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +22,7 @@
       <itemPath>nu32dip.c</itemPath>
       <itemPath>ssd1306.c</itemPath>
       <itemPath>template.c</itemPath>
+      <itemPath>mpu6050.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
