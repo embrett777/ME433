@@ -17,6 +17,7 @@ int main(void) {
   unsigned char data[14];
   float zXL;
   char m[100];
+  unsigned int f=24000000;
 
   while(1){
       	// use core timer for exactly 100Hz loop
@@ -31,13 +32,11 @@ int main(void) {
         // print out the data
         sprintf(m, "Z accel = %f", zXL);
         drawString(m,10,10);
-        ssd1306_update();
-        unsigned int t = _CP0_GET_COUNT();
-        float t2 = t/24000000.0;
-        sprintf(m, "Fps: %f", t2);
+        float fps = 24000000.0/f;
+        sprintf(m, "Fps: %f", fps);
         drawString(m,10,20);
         ssd1306_update();
-        blink(1,5);
+        f = _CP0_GET_COUNT();
     }
 }
 
