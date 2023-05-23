@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=nu32dip.c ws2812b.c
+SOURCEFILES_QUOTED_IF_SPACED=nu32dip.c ws2812b.c template.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ws2812b.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/nu32dip.o.d ${OBJECTDIR}/ws2812b.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ws2812b.o ${OBJECTDIR}/template.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/nu32dip.o.d ${OBJECTDIR}/ws2812b.o.d ${OBJECTDIR}/template.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ws2812b.o
+OBJECTFILES=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ws2812b.o ${OBJECTDIR}/template.o
 
 # Source Files
-SOURCEFILES=nu32dip.c ws2812b.c
+SOURCEFILES=nu32dip.c ws2812b.c template.c
 
 
 
@@ -133,6 +133,12 @@ ${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/flags/default/3dc64d2d51b9c9
 	@${RM} ${OBJECTDIR}/ws2812b.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/ws2812b.o.d" -o ${OBJECTDIR}/ws2812b.o ws2812b.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/template.o: template.c  .generated_files/flags/default/7a268337b9c8ba69725420cdb44e46d62d0a83fb .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/template.o.d 
+	@${RM} ${OBJECTDIR}/template.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/template.o.d" -o ${OBJECTDIR}/template.o template.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
 ${OBJECTDIR}/nu32dip.o: nu32dip.c  .generated_files/flags/default/6f5d51422903d155c3a6999bf32260c9f113666 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
@@ -145,6 +151,12 @@ ${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/flags/default/aed1a885a3f60f
 	@${RM} ${OBJECTDIR}/ws2812b.o.d 
 	@${RM} ${OBJECTDIR}/ws2812b.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/ws2812b.o.d" -o ${OBJECTDIR}/ws2812b.o ws2812b.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/template.o: template.c  .generated_files/flags/default/2355bb3ae413103f5da814d036abab4a5705370 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/template.o.d 
+	@${RM} ${OBJECTDIR}/template.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/template.o.d" -o ${OBJECTDIR}/template.o template.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 

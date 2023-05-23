@@ -17,6 +17,7 @@
                    projectFiles="true">
       <itemPath>nu32dip.c</itemPath>
       <itemPath>ws2812b.c</itemPath>
+      <itemPath>template.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
