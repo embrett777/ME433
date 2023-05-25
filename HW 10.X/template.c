@@ -4,18 +4,22 @@
 int main(void) {
   NU32DIP_Startup(); // cache on, interrupts on, LED/button init, UART init
   ws2812b_setup();
-  
-  wsColor pixels[5];
-  int hues[5] = {0, 70, 140, 210, 280};
-  int a=0, b=70, c=140, d=210, e=280;
+
+  wsColor pixels[8];
+  volatile int hues[8] = {0, 45, 90, 135, 180, 225, 270, 315};
+  char message[100];
   while(1){
-      for (int i=0; i<5; i++){
-          pixels[i] = HSBtoRGB(hues[i],1,0.5);
-          hues[i] = hues[i] + 1;
-          if (hues[i]>360){
-              hues[i] = 0;
+        for (int k=0; k<8; k++){
+          pixels[k] = HSBtoRGB(hues[k],1,1);
+          hues[k] = hues[k] + 1;
+          if (hues[k]>360){
+              hues[k] = 0;
           }
-      }
-    ws2812b_setColor(pixels, 5);
+        }
+
+        ws2812b_setColor(pixels, 8);
+        int t = _CP0_GET_COUNT();
+        while(_CP0_GET_COUNT()<t+24000000/1000){}
+        
   }
 }
