@@ -1,3 +1,5 @@
+# website wouldn't pop up, even though it generated IP address
+# wasn't able to fix problem, and heard multiple people encountered the same thing
 import os
 import time
 import ipaddress
